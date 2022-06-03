@@ -1,22 +1,9 @@
 <template>
-    <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold text-gray-900">Surveys</h1>
-        </div>
-    </header>
-    <main>
-        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-            <div class="px-4 py-6 sm:px-0">
-                content goes here
-            </div>
-        </div>
-    </main>
+    <page-components title="Surveys">Content goes here</page-components>
 </template>
 
-<script>
-export default {
-    name: "Surveys"
-}
+<script setup>
+import PageComponents from "../components/PageComponents.vue";
 </script>
 
 <style scoped>

@@ -5,7 +5,7 @@ const routes = [
     {
         path: '/',
         redirect: '/dashboard',
-        component: import("../components/DefaultLayout.vue"),
+        component: () => import("../components/DefaultLayout.vue"),
         meta: {requiresAuth: true},
         children: [
             {
@@ -24,7 +24,8 @@ const routes = [
         path: '/auth',
         redirect: '/login',
         name: 'Auth',
-        component: import("../components/AuthLayout.vue"),
+        meta: {isGuest: true},
+        component: () => import("../components/AuthLayout.vue"),
         children: [
             {
                 path: '/login',
@@ -47,7 +48,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requiresAuth && !store.state.user.token) next({name: 'Login'})
-    else if (store.state.user.token && (to.name === 'Login' || to.name === 'Register')) next({name: 'Dashboard'})
+    else if (store.state.user.token && (to.meta.isGuest)) next({name: 'Dashboard'})
     else next()
 })
 
