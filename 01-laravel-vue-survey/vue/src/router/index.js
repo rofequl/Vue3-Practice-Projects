@@ -17,6 +17,16 @@ const routes = [
                 path: '/surveys',
                 name: 'Surveys',
                 component: () => import("../views/Surveys.vue")
+            },
+            {
+                path: '/surveys/create',
+                name: 'SurveyCreate',
+                component: () => import("../views/SurveyView.vue")
+            },
+            {
+                path: '/surveys/:id',
+                name: 'SurveyView',
+                component: () => import("../views/SurveyView.vue")
             }
         ]
     },
