@@ -2,7 +2,7 @@ import {createStore} from "vuex";
 import axiosClient from "../axios";
 
 const tmpSurvey = [{
-    id: '',
+    id: 4,
     title: '',
     slug: '',
     status: '',
