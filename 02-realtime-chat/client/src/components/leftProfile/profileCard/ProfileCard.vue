@@ -1,6 +1,6 @@
 <template>
   <!--  User profile Info -->
-  <div class="ml-4 mt-4 rounded-2xl flex flex-col relative gap-4 bg-[#ffffffa3] overflow-x-clip">
+  <div class="rounded-2xl flex flex-col relative gap-4 bg-[#ffffffa3] overflow-x-clip">
     <div class="relative flex flex-col items-center justify-center">
       <img src="https://preview.cruip.com/mosaic/images/pay-bg.jpg" alt="" class="w-full"/>
       <img src="https://preview.cruip.com/mosaic/images/user-64-13.jpg" class="w-24 rounded-full absolute shadow-md -bottom-12" alt=""/>
