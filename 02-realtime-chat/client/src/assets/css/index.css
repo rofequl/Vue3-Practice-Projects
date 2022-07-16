@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,22 +20,6 @@
     --shedule: #E1AE4A;
 }
 
-.button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    background: var(--buttonBg);
-    transition: all 100ms ease-out;
-    width: 80px;
-}
-
-.button:hover {
-    cursor: pointer;
-    color: var(--orange);
-    background: transparent;
-    border: 2px solid var(--orange);
-    width: 80px;
+::-webkit-scrollbar {
+    display: none;
 }

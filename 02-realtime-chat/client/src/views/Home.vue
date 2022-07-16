@@ -2,7 +2,9 @@
   <div class="relative grid gap-4 grid-cols-[18rem_auto_20rem]">
     <left-profile-components/>
     <div>f</div>
-    <div>g</div>
+    <div>
+      <router-link to="/message">Message</router-link>
+    </div>
   </div>
 </template>
 <script setup>

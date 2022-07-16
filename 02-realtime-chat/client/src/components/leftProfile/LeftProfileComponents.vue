@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-4 items-center overflow-auto">
+  <div class="flex flex-col gap-4 items-center overflow-auto h-screen">
     <logo-search/>
     <profile-card/>
     <followers-card/>

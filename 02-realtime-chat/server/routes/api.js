@@ -12,8 +12,8 @@ router.post("/user/login", AuthController.login);
 // User Action Api
 // router.put('/update/:id', authMiddleware, UserController.updateUser)
 // router.get("/user/:username", authMiddleware, UserController.getUser);
-router.get("/all-user", authMiddleware, UserController.getAllUsers);
-// router.put('/user/:id/follow', authMiddleware, UserController.followUser)
-// router.put('/user/:id/unfollow', authMiddleware, UserController.unfollowUser)
+router.get("/all-user", authMiddleware, UserController.getAllUsers)
+router.put('/user/:userId/follow', authMiddleware, UserController.followUser)
+router.put('/user/:userId/unfollow', authMiddleware, UserController.unfollowUser)
 
 module.exports = router;

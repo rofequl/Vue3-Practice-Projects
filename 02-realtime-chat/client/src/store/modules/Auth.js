@@ -61,6 +61,13 @@ const auth = {
         SET_AUTH_USERS: (state, user) => {
             state.user = user;
         },
+        SET_FOLLOWING: (state, data) => {
+            state.user.following.unshift(data);
+        },
+        REMOVE_FOLLOWING: (state, data) => {
+            let index = state.user.following.findIndex(value => value === data);
+            state.user.following.splice(index, 1);
+        },
     },
 };
 
