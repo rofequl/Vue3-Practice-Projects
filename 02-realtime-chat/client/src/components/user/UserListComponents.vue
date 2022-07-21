@@ -7,7 +7,8 @@
         <span class="font-light antialiased text-gray-500">@{{ userInfo.username }}</span>
       </div>
     </div>
-    <follow-button-components :userid="userInfo._id" :following="user.following.includes(userInfo._id)"/>
+    <follow-button-components :userid="userInfo._id" :username="userInfo.username"
+                              :following="user.following.includes(userInfo._id)"/>
   </div>
 </template>
 
