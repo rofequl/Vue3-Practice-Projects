@@ -61,24 +61,6 @@ const unfollowPeople = () => {
 
 </script>
 <style>
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  background: var(--buttonBg);
-  transition: all 100ms ease-out;
-}
-
-.button:hover {
-  cursor: pointer;
-  color: var(--orange);
-  background: transparent;
-  border: 2px solid var(--orange);
-}
-
 .UnfollowButton {
   color: var(--orange);
   border: 2px solid var(--orange);

@@ -16,4 +16,6 @@ router.get("/all-user", authMiddleware, UserController.getAllUsers)
 router.put('/user/:userId/follow', authMiddleware, UserController.followUser)
 router.put('/user/:userId/unfollow', authMiddleware, UserController.unfollowUser)
 
+// Post Api
+
 module.exports = router;

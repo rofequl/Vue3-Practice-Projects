@@ -1,0 +1,48 @@
+<template>
+  <div class="flex gap-4 p-4 rounded-xl bg-[#ffffffa3] shadow">
+    <img src="../../assets/img/template/profileImg.jpg" alt="" class="rounded-full w-12 h-12"/>
+    <div class="flex flex-col w-full gap-4">
+      <input type="text" placeholder="What's happening?" v-model="post.desc"
+             class="bg-[#28343e12] rounded-md text-sm p-2 border-none outline-none focus:outline-none focus:ring-0"/>
+      <div class="flex justify-between">
+        <div class="p-1 px-3 flex items-center justify-center text-xs rounded-xl hover:cursor-pointer text-[#4CB256]"
+             @click="imageRef.click()">
+          <photograph-icon class="h-4 w-4"/>
+          Photo
+        </div>
+        <button class="button p-1 px-3 text-xs h-6 w-14">Share</button>
+        <div class="hidden">
+          <input type="file" ref="imageRef" @change="onImageChange">
+        </div>
+      </div>
+      <div class="relative" v-if="post.image">
+        <x-icon class="absolute right-4 top-2 cursor-pointer w-4 bg-[#ffffff85] rounded-full"
+                @click="() => post.image = ''"/>
+        <img :src="post.image" alt="" class="w-full max-h-80 object-cover rounded-xl"/>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import {PhotographIcon, XIcon} from '@heroicons/vue/outline'
+import {ref} from "vue";
+
+const imageRef = ref();
+const post = ref({
+  desc: '',
+  image: '',
+})
+
+const onImageChange = (event) => {
+  if (event.target.files && event.target.files[0]) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      post.value.image = reader.result
+      event.target.value = ""
+    };
+    reader.readAsDataURL(file);
+  }
+};
+</script>
