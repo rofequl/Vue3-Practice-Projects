@@ -27,7 +27,22 @@ module.exports.createPost = [
                 image: imageName,
             });
             await newPost.save();
-            res.status(200).json(newPost);
+            const path = req.protocol + '://' + req.get('host') + "/";
+            console.log(newPost._id);
+            const currentUserPosts = await Post.aggregate([
+                {$match: {_id: newPost._id}},
+                {
+                    $project: {
+                        totalLikes: {$size: "$likes"},
+                        desc: 1,
+                        image: {$concat: [path, "$image"]},
+                        userId: 1,
+                        owner: "Myself",
+                        likePost: {$in: [mySelf._id, "$likes"]}
+                    }
+                },
+            ]);
+            res.status(200).json(currentUserPosts[0]);
         } catch (error) {
             res.status(500).json({message: "Error saving record", error: error.message});
         }

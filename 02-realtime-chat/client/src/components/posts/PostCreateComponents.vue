@@ -10,7 +10,9 @@
           <photograph-icon class="h-4 w-4"/>
           Photo
         </div>
-        <button class="button p-1 px-3 text-xs h-6 w-14" @click="submit">Share</button>
+        <button class="button p-1 px-3 text-xs h-6 w-14"
+                :class="[post.image? 'cursor-pointer':'cursor-not-allowed']" @click="submit">Share
+        </button>
         <div class="hidden">
           <input type="file" ref="imageRef" @change="onImageChange">
         </div>
@@ -47,10 +49,13 @@ const onImageChange = (event) => {
 const showImage = (event) => event ? URL.createObjectURL(event) : ''
 
 const submit = () => {
-  const data = new FormData();
-  data.append("name", post.value.desc);
-  data.append("file", post.value.image);
-  console.log(data);
-  apiService.post("posts", data)
+  if (post.value.image) {
+    const data = new FormData();
+    data.append("desc", post.value.desc);
+    data.append("image", post.value.image);
+    store.dispatch('CREATE_NEW_POST', data)
+    post.value.image = ''
+    post.value.desc = ''
+  }
 }
 </script>
