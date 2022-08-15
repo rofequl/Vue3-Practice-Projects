@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-4 h-screen overflow-auto max-w-xl mx-auto">
+  <div class="flex flex-col gap-4 h-screen overflow-auto max-w-xl mx-auto w-full">
     <post-create-components/>
     <post-components/>
   </div>

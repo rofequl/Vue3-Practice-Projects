@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 // Init body-parser options (inbuilt with express)
 app.use(express.json());
+app.use(express.static('storage'))
 app.use(cors());
 
 // Import API routes
@@ -20,7 +21,7 @@ app.use((error, req, res, next) => {
     const message = error.message;
     const data = error.data;
     res.status(status).json({message, data});
-  });
+});
 
 
 app.listen(PORT, () => console.log(`app started on port: ${PORT}`));

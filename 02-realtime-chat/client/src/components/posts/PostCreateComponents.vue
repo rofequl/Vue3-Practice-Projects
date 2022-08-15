@@ -10,7 +10,7 @@
           <photograph-icon class="h-4 w-4"/>
           Photo
         </div>
-        <button class="button p-1 px-3 text-xs h-6 w-14">Share</button>
+        <button class="button p-1 px-3 text-xs h-6 w-14" @click="submit">Share</button>
         <div class="hidden">
           <input type="file" ref="imageRef" @change="onImageChange">
         </div>
@@ -18,7 +18,8 @@
       <div class="relative" v-if="post.image">
         <x-icon class="absolute right-4 top-2 cursor-pointer w-4 bg-[#ffffff85] rounded-full"
                 @click="() => post.image = ''"/>
-        <img :src="post.image" alt="" class="w-full max-h-80 object-cover rounded-xl"/>
+        <img :src="showImage(post.image)" alt=""
+             class="w-full max-h-80 object-cover rounded-xl"/>
       </div>
     </div>
   </div>
@@ -27,6 +28,8 @@
 <script setup>
 import {PhotographIcon, XIcon} from '@heroicons/vue/outline'
 import {ref} from "vue";
+import store from "../../store";
+import apiService from "../../core/services/api.service";
 
 const imageRef = ref();
 const post = ref({
@@ -37,12 +40,17 @@ const post = ref({
 const onImageChange = (event) => {
   if (event.target.files && event.target.files[0]) {
     const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      post.value.image = reader.result
-      event.target.value = ""
-    };
-    reader.readAsDataURL(file);
+    post.value.image = file;
   }
 };
+
+const showImage = (event) => event ? URL.createObjectURL(event) : ''
+
+const submit = () => {
+  const data = new FormData();
+  data.append("name", post.value.desc);
+  data.append("file", post.value.image);
+  console.log(data);
+  apiService.post("posts", data)
+}
 </script>
