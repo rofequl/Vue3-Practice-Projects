@@ -1,14 +1,11 @@
 <template>
-  <div>
-    <h2>Message</h2>
-    <router-link to="/">Home</router-link>
+  <div class="relative grid gap-4 grid-cols-[18rem_auto]">
+    <conversion/>
+    <chat-box/>
   </div>
 </template>
 
-<script>
-
+<script setup>
+import Conversion from "../components/message/conversion/Conversion.vue";
+import ChatBox from "../components/message/chatBox/ChatBox.vue";
 </script>
-
-<style scoped>
-
-</style>

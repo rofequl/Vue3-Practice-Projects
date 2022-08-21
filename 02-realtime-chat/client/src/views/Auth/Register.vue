@@ -59,7 +59,7 @@ const schema = {
 const onSubmit = (values, actions) => {
   store.dispatch('REGISTER', values)
       .then(() => {
-        router.push({name: 'Home'})
+        router.push({name: 'HomePage'})
       })
       .catch(err => {
         err.response.data.errors.email ? actions.setFieldError('email', err.response.data.errors.email.msg) : '';
