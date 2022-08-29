@@ -4,6 +4,7 @@ const upload = require('../middleware/UploadMiddleware');
 const AuthController = require("../controllers/AuthController");
 const UserController = require("../controllers/UserController");
 const PostController = require("../controllers/PostController");
+const ChatController = require("../controllers/ChatController");
 const {authMiddleware} = require("../helper/jwtUtils");
 
 // User Authentication Api
@@ -23,5 +24,10 @@ router.post("/posts", upload.any(), authMiddleware, PostController.createPost);
 router.get("/posts/timeline", authMiddleware, PostController.timelinePost);
 router.delete("/posts/:postId", authMiddleware, PostController.deletePost);
 router.put('/posts/:postId/like', authMiddleware, PostController.likePost)
+
+// Message Api
+router.post('/message', authMiddleware, ChatController.addMessage);
+router.get('/message/:chatId', authMiddleware, ChatController.getMessages);
+router.get('/chat', authMiddleware, ChatController.userChats);
 
 module.exports = router;

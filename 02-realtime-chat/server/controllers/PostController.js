@@ -69,7 +69,6 @@ module.exports.deletePost = async (req, res) => {
             message: "You have no access to delete this post"
         });
     } catch (error) {
-        console.log(error);
         res.status(500).json({message: "Error delete post", error: error.message});
     }
 }

@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col gap-4">
     <right-side-component class="w-64 self-end"/>
-    <div class="bg-[#ffffffa3] rounded-xl grid-rows-2 h-[86vh] shadow">
+    <div class="bg-[#ffffffa3] rounded-xl grid-rows-2 h-[87vh] shadow">
       <div class="gap-0 grid grid-cols-[auto_0.1rem_16rem] h-full">
-        <div class="pt-4 pl-4 flex flex-col">
-          <div class="flex items-center space-x-4">
+        <div class="grid grid-rows-[12vh_64vh_10vh]">
+          <div class="flex items-center space-x-4 p-3 pb-0 shadow">
             <div class="relative">
               <img class="w-11 h-11 rounded-full" src="../../../assets/img/template/profileImg.jpg" alt="">
               <span
@@ -15,32 +15,83 @@
               <div class="text-sm text-gray-500 dark:text-gray-400">active now</div>
             </div>
           </div>
-          <hr class="mt-3">
-          <div class=" flex flex-col relative w-full h-full pr-2">
-            <div class="h-full flex flex-col gap-2 p-3 overflow-scroll">
-              <div class="bg-gradient-to-r from-[#f99827] to-[#f95f35] p-2 rounded-xl rounded-bl-none text-white w-fit max-w-7xl">
-                all message in there
-              </div>
-              <div class="self-end bg-gradient-to-r from-[#27c1cb] to-[#358ff9] p-2 rounded-xl rounded-br-none text-white w-fit max-w-7xl">
-                all message in there
-              </div>
+          <div class="flex flex-col gap-1 p-3 overflow-scroll">
+            <div
+                class="bg-gradient-to-r from-[#f99827] to-[#f95f35] p-2 rounded-xl rounded-bl-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
             </div>
-            <div class="h-16 flex items-center justify-center w-full gap-2">
-              <button type="button" class="p-1.5 text-gray-500 rounded-lg border border-orange-100 bg-[#c3c3c336] cursor-pointer hover:text-gray-600
+            <div
+                class="self-end bg-gradient-to-r from-[#27c1cb] to-[#358ff9] p-2 rounded-xl rounded-br-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="bg-gradient-to-r from-[#f99827] to-[#f95f35] p-2 rounded-xl rounded-bl-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="self-end bg-gradient-to-r from-[#27c1cb] to-[#358ff9] p-2 rounded-xl rounded-br-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="self-end bg-gradient-to-r from-[#27c1cb] to-[#358ff9] p-2 rounded-xl rounded-br-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="self-end bg-gradient-to-r from-[#27c1cb] to-[#358ff9] p-2 rounded-xl rounded-br-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="bg-gradient-to-r from-[#f99827] to-[#f95f35] p-2 rounded-xl rounded-bl-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="self-end bg-gradient-to-r from-[#27c1cb] to-[#358ff9] p-2 rounded-xl rounded-br-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="bg-gradient-to-r from-[#f99827] to-[#f95f35] p-2 rounded-xl rounded-bl-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="self-end bg-gradient-to-r from-[#27c1cb] to-[#358ff9] p-2 rounded-xl rounded-br-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="self-end bg-gradient-to-r from-[#27c1cb] to-[#358ff9] p-2 rounded-xl rounded-br-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+            <div
+                class="self-end bg-gradient-to-r from-[#27c1cb] to-[#358ff9] p-2 rounded-xl rounded-br-none text-white w-fit max-w-7xl flex flex-col">
+              <span class="text-ase">all message in there</span>
+              <span class="text-xs self-end">2 minutes ago</span>
+            </div>
+          </div>
+          <div class="flex justify-between h-14 items-center gap-4 p-3 self-end">
+            <button type="button" class="p-1.5 text-gray-500 rounded-lg border border-orange-100 bg-[#c3c3c336] cursor-pointer hover:text-gray-600
               hover:bg-[#bba6a636] hover:border-orange-200">
-                <plus-icon class="w-4 h-4"/>
-              </button>
-              <div class="flex bg-[#28343e12] rounded-lg h-8 px-2 w-full border border-orange-200">
+              <plus-icon class="w-4 h-4"/>
+            </button>
+            <div class="flex bg-[#28343e12] rounded-lg h-8 px-2 w-full border border-orange-200">
               <textarea rows="1" placeholder="Your message..."
                         class="resize-none items-center content-center bg-transparent w-full p-1 border-none outline-none text-sm text-gray-900 focus:outline-none focus:ring-0"></textarea>
-                <div class="flex items-center content-center cursor-pointer text-orange-400 hover:text-orange-500">
-                  <emoji-happy-icon class="w-6 h-6"/>
-                </div>
+              <div class="flex items-center content-center cursor-pointer text-orange-400 hover:text-orange-500">
+                <emoji-happy-icon class="w-6 h-6"/>
               </div>
-              <button type="submit" class="p-1.5 text-orange-500 rounded-full cursor-pointer hover:bg-gray-200">
-                <paper-airplane-icon class="h-5 w-5 rotate-90"/>
-              </button>
             </div>
+            <button type="submit" class="p-1.5 text-orange-500 rounded-full cursor-pointer hover:bg-gray-200">
+              <paper-airplane-icon class="h-5 w-5 rotate-90"/>
+            </button>
           </div>
         </div>
         <div class="h-full border-l border-gray-300"></div>
@@ -60,11 +111,15 @@
 </template>
 
 <script setup>
+import {ref, onMounted} from "vue";
 import {PlusIcon, EmojiHappyIcon} from '@heroicons/vue/outline'
 import {PaperAirplaneIcon} from '@heroicons/vue/solid'
 import RightSideComponent from "../../rightNav/RightSideComponent.vue";
+
+const scroll = ref();
+
+onMounted(() => {
+  scroll.value?.scrollIntoView({ behavior: "smooth" });
+})
 </script>
 
-<style scoped>
-
-</style>

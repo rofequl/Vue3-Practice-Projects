@@ -2,7 +2,7 @@
   <!--Left Side-->
   <div class="flex flex-col gap-4">
     <logo-search/>
-    <div class="flex flex-col gap-4 rounded-xl p-4 bg-[#ffffffa3] h-[86vh] overflow-scroll shadow">
+    <div class="flex flex-col gap-4 rounded-xl p-4 bg-[#ffffffa3] h-[87vh] overflow-scroll shadow">
       <div class="flex justify-between">
         <h2 class="font-bold text-2xl tracking-wide antialiased">Chats</h2>
         <pencil-alt-icon class="w-7 h-7 bg-[#28343e12] rounded-full p-1 text-orange-500 cursor-pointer hover:shadow"/>

@@ -3,7 +3,6 @@ const User = require("../schema/user");
 const {genPassword, validPassword} = require("../helper/passwordUtils");
 const {genUsername} = require("../helper/helper");
 const {issueJWT} = require("../helper/jwtUtils");
-const {use} = require("bcrypt/promises");
 
 // Get user information
 module.exports.profile = function (req, res) {
