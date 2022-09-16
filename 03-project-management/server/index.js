@@ -3,13 +3,18 @@ require('./db')
 const express = require("express");
 const cors = require("cors");
 
+const path = __dirname + '/views/';
 const PORT = process.env.PORT || 3000;
 const app = express();
 // Init body-parser options (inbuilt with express)
 app.use(express.json());
-app.use(express.static('storage'))
+app.use(express.static(path))
 app.use(cors());
 
+// Frontend view html page serve
+app.get('/', function (req,res) {
+    res.sendFile(path + "index.html");
+});
 // Import API routes
 const router = require('./routes/api.js')
 // Use API Routes
