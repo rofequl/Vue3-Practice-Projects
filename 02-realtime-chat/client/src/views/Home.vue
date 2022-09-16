@@ -1,5 +1,5 @@
 <template>
-  <div class="relative grid gap-4 grid-cols-[18rem_auto_16rem]">
+  <div class="relative grid gap-4 grid-cols-[18rem_auto_16rem] 2xl:grid-cols-[20rem_auto_16rem]">
     <left-profile-components/>
     <middle-post-components/>
     <right-side-component/>

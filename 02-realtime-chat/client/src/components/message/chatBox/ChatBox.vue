@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-4">
     <right-side-component class="w-64 self-end"/>
     <div class="bg-[#ffffffa3] rounded-xl grid-rows-2 h-[87vh] shadow">
-      <div class="gap-0 grid grid-cols-[auto_0.1rem_16rem] h-full">
+      <div class="gap-0 grid grid-cols-[auto_0.1rem_16rem] 2xl:grid-cols-[auto_0.1rem_22rem] h-full hidden">
         <div class="grid grid-rows-[12vh_64vh_10vh]">
           <div class="flex items-center space-x-4 p-3 pb-0 shadow">
             <div class="relative">
@@ -86,11 +86,11 @@
               <textarea rows="1" placeholder="Your message..."
                         class="resize-none items-center content-center bg-transparent w-full p-1 border-none outline-none text-sm text-gray-900 focus:outline-none focus:ring-0"></textarea>
               <div class="flex items-center content-center cursor-pointer text-orange-400 hover:text-orange-500">
-                <emoji-happy-icon class="w-6 h-6"/>
+                <face-smile-icon class="w-6 h-6"/>
               </div>
             </div>
             <button type="submit" class="p-1.5 text-orange-500 rounded-full cursor-pointer hover:bg-gray-200">
-              <paper-airplane-icon class="h-5 w-5 rotate-90"/>
+              <paper-airplane-icon class="h-5 w-5"/>
             </button>
           </div>
         </div>
@@ -112,8 +112,8 @@
 
 <script setup>
 import {ref, onMounted} from "vue";
-import {PlusIcon, EmojiHappyIcon} from '@heroicons/vue/outline'
-import {PaperAirplaneIcon} from '@heroicons/vue/solid'
+import {PlusIcon, FaceSmileIcon} from '@heroicons/vue/24/outline'
+import {PaperAirplaneIcon} from '@heroicons/vue/24/solid'
 import RightSideComponent from "../../rightNav/RightSideComponent.vue";
 
 const scroll = ref();

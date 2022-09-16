@@ -7,7 +7,7 @@
              class="bg-transparent w-full border-none outline-none focus:outline-none focus:ring-0"/>
       <div
           class="flex items-center content-center rounded-xl p-1 text-white bg-gradient-to-r from-[#f99827] to-[#f95f35]">
-        <search-icon class="h-6 w-6"/>
+        <magnifying-glass-icon class="h-6 w-6"/>
       </div>
     </div>
   </div>
@@ -17,5 +17,5 @@
 </template>
 
 <script setup>
-import {SearchIcon} from '@heroicons/vue/outline'
+import {MagnifyingGlassIcon} from '@heroicons/vue/24/outline'
 </script>

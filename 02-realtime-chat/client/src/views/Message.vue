@@ -1,5 +1,5 @@
 <template>
-  <div class="relative grid gap-4 grid-cols-[18rem_auto]">
+  <div class="relative grid gap-4 grid-cols-[18rem_auto] 2xl:grid-cols-[24rem_auto]">
     <conversion/>
     <chat-box/>
   </div>

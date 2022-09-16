@@ -9,7 +9,7 @@
     <Menu as="div" class="relative inline-block text-left">
       <div>
         <MenuButton>
-          <dots-horizontal-icon class="w-5 text-orange-400"/>
+          <ellipsis-horizontal-icon class="w-5 text-orange-400"/>
         </MenuButton>
       </div>
       <transition enter-active-class="transition duration-100 ease-out"
@@ -56,6 +56,6 @@
 </template>
 
 <script setup>
-import {DotsHorizontalIcon} from '@heroicons/vue/outline'
+import {EllipsisHorizontalIcon} from '@heroicons/vue/24/outline'
 import {Menu, MenuButton, MenuItems, MenuItem} from '@headlessui/vue'
 </script>

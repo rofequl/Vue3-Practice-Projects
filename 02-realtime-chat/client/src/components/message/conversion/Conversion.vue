@@ -5,7 +5,7 @@
     <div class="flex flex-col gap-4 rounded-xl p-4 bg-[#ffffffa3] h-[87vh] overflow-scroll shadow">
       <div class="flex justify-between">
         <h2 class="font-bold text-2xl tracking-wide antialiased">Chats</h2>
-        <pencil-alt-icon class="w-7 h-7 bg-[#28343e12] rounded-full p-1 text-orange-500 cursor-pointer hover:shadow"/>
+        <new-message/>
       </div>
       <div class="flex flex-col gap-4">
         <div class="flex justify-between items-center cursor-pointer hover:bg-gray-200 p-1 rounded-xl">
@@ -23,13 +23,15 @@
           <Menu as="div" class="relative inline-block text-left">
             <div>
               <MenuButton>
-                <dots-vertical-icon class="w-5 text-gray-300 hover:text-gray-400"/>
+                <ellipsis-vertical-icon class="w-5 text-gray-300 hover:text-gray-400"/>
               </MenuButton>
             </div>
             <transition enter-active-class="transition duration-100 ease-out"
                         enter-from-class="transform scale-95 opacity-0"
-                        enter-to-class="transform scale-100 opacity-100" leave-active-class="transition duration-75 ease-in"
-                        leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-95 opacity-0">
+                        enter-to-class="transform scale-100 opacity-100"
+                        leave-active-class="transition duration-75 ease-in"
+                        leave-from-class="transform scale-100 opacity-100"
+                        leave-to-class="transform scale-95 opacity-0">
               <MenuItems
                   class="absolute right-0 w-36 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
               >
@@ -53,7 +55,7 @@
                   <MenuItem v-slot="{ active }">
                     <button :class="[active ? 'bg-gradient-to-r from-[#f99827] to-[#f95f35] text-white' : 'text-gray-900',
                     'group flex w-full items-center px-2 py-2 text-sm']">
-                      <exclamation-icon class="mr-2 h-5 w-5"/>
+                      <exclamation-triangle-icon class="mr-2 h-5 w-5"/>
                       Report
                     </button>
                   </MenuItem>
@@ -76,8 +78,14 @@
 </template>
 
 <script setup>
-import {PencilAltIcon, TrashIcon, ExclamationIcon, CheckIcon, UserCircleIcon} from '@heroicons/vue/outline'
+import {
+  TrashIcon,
+  ExclamationTriangleIcon,
+  CheckIcon,
+  UserCircleIcon,
+  EllipsisVerticalIcon
+} from '@heroicons/vue/24/outline'
 import LogoSearch from "../../leftProfile/profileCard/LogoSearch.vue";
-import {DotsVerticalIcon} from '@heroicons/vue/outline'
 import {Menu, MenuButton, MenuItems, MenuItem} from '@headlessui/vue'
+import NewMessage from "./components/NewMessage.vue";
 </script>

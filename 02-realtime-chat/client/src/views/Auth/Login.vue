@@ -55,7 +55,7 @@
   </page-components>
 </template>
 <script setup>
-import {LockClosedIcon} from '@heroicons/vue/solid'
+import {LockClosedIcon} from '@heroicons/vue/24/solid'
 import {Form} from 'vee-validate';
 import store from '../../store';
 import InputComponents from "../../components/form/login/InputComponents.vue";

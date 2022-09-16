@@ -7,7 +7,7 @@
       <div class="flex justify-between">
         <div class="p-1 px-3 flex items-center justify-center text-xs rounded-xl hover:cursor-pointer text-[#4CB256]"
              @click="imageRef.click()">
-          <photograph-icon class="h-4 w-4"/>
+          <photo-icon class="h-4 w-4"/>
           Photo
         </div>
         <button class="button p-1 px-3 text-xs h-6 w-14"
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="relative" v-if="post.image">
-        <x-icon class="absolute right-4 top-2 cursor-pointer w-4 bg-[#ffffff85] rounded-full"
+        <x-mark-icon class="absolute right-4 top-2 cursor-pointer w-4 bg-[#ffffff85] rounded-full"
                 @click="() => post.image = ''"/>
         <img :src="showImage(post.image)" alt=""
              class="w-full max-h-80 object-cover rounded-xl"/>
@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import {PhotographIcon, XIcon} from '@heroicons/vue/outline'
+import {PhotoIcon, XMarkIcon} from '@heroicons/vue/24/outline'
 import {ref} from "vue";
 import store from "../../store";
 import apiService from "../../core/services/api.service";

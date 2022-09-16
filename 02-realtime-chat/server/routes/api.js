@@ -27,6 +27,7 @@ router.put('/posts/:postId/like', authMiddleware, PostController.likePost)
 
 // Message Api
 router.post('/message', authMiddleware, ChatController.addMessage);
+router.get('/new-message', authMiddleware, ChatController.newMessage);
 router.get('/message/:chatId', authMiddleware, ChatController.getMessages);
 router.get('/chat', authMiddleware, ChatController.userChats);
 
