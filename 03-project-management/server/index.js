@@ -1,69 +1,27 @@
+require("dotenv").config();
 require('./db')
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const cors = require("cors");
 
-const mongoose = require('mongoose')
+const PORT = process.env.PORT || 3000;
+const app = express();
+// Init body-parser options (inbuilt with express)
+app.use(express.json());
+app.use(express.static('storage'))
+app.use(cors());
 
-const user = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true,
-    },
-    nested: {
-        firstName: {type: String, required: true},
-        lastName: {type: String, required: true}
-    },
-    email: {
-        type: String,
-        required: [true, "Email required"],
-    },
-    dob: {
-        type: Date,
-        required: [false, "Date of birth required"],
-    },
-    gender: {
-        type: String,
-        enum: {values: ["Male", "Female"], message: '{VALUE} is not supported'},
-        required: false
-    },
-    password: {
-        select: false,
-        type: String,
-        required: [true, "Password required"],
-        min: [6, 'Password must be at least 6, got {VALUE}'],
-        max: [20, 'Password must be maximum 20, got {VALUE}']
-    },
-    salt: {
-        select: false,
-        type: String,
-    },
-    isAdmin: {
-        type: Boolean,
-        default: false,
-    },
-}, {timestamps: true})
+// Import API routes
+const router = require('./routes/api.js')
+// Use API Routes
+app.use('/api', router)
 
-const Student = mongoose.model('User', user)
+app.use((error, req, res, next) => {
+    console.log(error);
+    const status = error.statusCode || 500;
+    const message = error.message;
+    const data = error.data;
+    res.status(status).json({message, data});
+});
 
-app.get('/', (req, res) => {
 
-    Student.find({}, function(err, users) {
-        var userMap = {};
-
-        users.forEach(function(user) {
-            userMap[user._id] = user;
-        });
-
-        res.send(userMap);
-    });
-
-})
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+app.listen(PORT, () => console.log(`app started on port: ${PORT}`));
