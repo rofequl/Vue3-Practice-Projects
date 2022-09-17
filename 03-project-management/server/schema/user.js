@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const {Schema} = mongoose;
 
 const user = new mongoose.Schema({
     name: {
@@ -9,18 +10,12 @@ const user = new mongoose.Schema({
         type: String,
         required: true,
     },
-    nested: {
-        firstName: {type: String, required: true},
-        lastName: {type: String, required: true}
-    },
     email: {
         type: String,
         required: [true, "Email required"],
     },
-    dob: {
-        type: Date,
-        required: [false, "Date of birth required"],
-    },
+    mobile: String,
+    dob: {type: Date},
     gender: {
         type: String,
         enum: {values: ["Male", "Female"], message: '{VALUE} is not supported'},
@@ -37,10 +32,17 @@ const user = new mongoose.Schema({
         select: false,
         type: String,
     },
-    isAdmin: {
+    status: {
         type: Boolean,
         default: false,
     },
+    roleId: {
+        type: Schema.Types.ObjectId,
+        required: true,
+    },
+    relationship: String,
+    livesIn: String,
+    profilePicture: String,
 }, {timestamps: true})
 
 module.exports = mongoose.model('User', user)

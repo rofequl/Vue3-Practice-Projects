@@ -12,8 +12,8 @@ app.use(express.static(path))
 app.use(cors());
 
 // Frontend view html page serve
-app.get('/', function (req,res) {
-    res.sendFile(path + "index.html");
+app.get('/', function (req, res) {
+    res.sendFile(path + "index.html")
 });
 // Import API routes
 const router = require('./routes/api.js')
