@@ -4,6 +4,7 @@ const {genPassword, validPassword} = require("../helper/passwordUtils");
 const {genUsername} = require("../helper/helper");
 const {issueJWT} = require("../helper/jwtUtils");
 const {storeUserLoginInfo} = require("../helper/loginInfo");
+const LoginInfo = require("../schema/login_info");
 
 // Get user information
 module.exports.profile = function (req, res) {
@@ -80,3 +81,11 @@ module.exports.register = [
         });
     },
 ];
+
+// User logout
+module.exports.logout = function (req, res) {
+    LoginInfo.deleteOne({userId: req.user, refreshKey: req.refreshToken}, function (err) {
+        if (err) return res.status(200).json({message: "Logout problem", error: err});
+        else return res.status(200).json({message: "Logout Successfully"});
+    });
+};

@@ -5,40 +5,36 @@
         <div class="card">
           <div class="card-body">
             <img class="auth-form__logo d-table mx-auto mb-3"
-                 src="https://designrevision.com/demo/shards-dashboards/images/shards-dashboards-logo.svg"
+                 src="../../assets/img/logo.png"
                  alt="Shards Dashboards - Register Template">
             <h5 class="auth-form__title text-center mb-4">Access Your Account</h5>
-            <form>
+            <Form @submit="onSubmit">
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="Enter email">
+                <label for="email-address">Email address</label>
+                <Field rules="required|email" name="email" v-slot="{ field, errors }">
+                  <input type="email" class="form-control" id="email-address" placeholder="Enter email"
+                         v-bind="field" autocomplete="email" :class="{'is-invalid': !!errors.length }"/>
+                </Field>
+                <div class="invalid-feedback">
+                  <ErrorMessage name="email"/>
+                </div>
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group mb-3 d-table mx-auto">
-                <div class="custom-control custom-checkbox mb-1">
-                  <input type="checkbox" class="custom-control-input" id="customCheck2">
-                  <label class="custom-control-label" for="customCheck2">Remember me for 30 days.</label>
+                <label for="password">Password</label>
+                <Field name="password" v-slot="{ field, errors }" rules="required|min:6">
+                  <input type="password" class="form-control" id="password" placeholder="Password"
+                         v-bind="field" :class="{'is-invalid': !!errors.length }" autocomplete="current-password"/>
+                </Field>
+                <div class="invalid-feedback">
+                  <ErrorMessage name="password"/>
                 </div>
               </div>
               <button type="submit" class="btn btn-pill btn-accent d-table mx-auto">Access Account</button>
-            </form>
-          </div>
-          <div class="card-footer border-top">
-            <ul class="auth-form__social-icons d-table mx-auto">
-              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fab fa-github"></i></a></li>
-              <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-            </ul>
+            </Form>
           </div>
         </div>
         <div class="auth-form__meta d-flex mt-4">
-          <a href="forgot-password.html">Forgot your password?</a>
-          <a class="ml-auto" href="register.html">Create new account?</a>
+          <a href="#">Forgot your password?</a>
         </div>
       </div>
     </div>
@@ -46,5 +42,17 @@
 </template>
 
 <script setup>
+import {Form, Field, ErrorMessage} from 'vee-validate';
+import store from "../../store/index.js";
+import router from "../../router/index.js";
+import {ref} from "vue";
 
+let errorMsg = ref('');
+const onSubmit = (values) => {
+  store.dispatch('LOGIN', {emailOrPhone: values.email, password: values.password})
+      .then(() => {
+        router.push({name: 'Dashboard'})
+      })
+      .catch(err => errorMsg.value = err.response.data.error)
+}
 </script>

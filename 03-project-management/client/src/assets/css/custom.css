@@ -1,0 +1,15 @@
+.ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title {
+    font-weight: 300;
+}
+
+.profileList {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.profileList li {
+    padding: 5px;
+    margin-bottom: 1px;
+    margin-left: 10px;
+    color: #888d97;
+}

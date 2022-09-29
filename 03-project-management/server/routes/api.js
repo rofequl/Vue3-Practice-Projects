@@ -8,6 +8,7 @@ const {detectServer} = require("../middleware/DetectServer");
 router.get("/user/profile", authMiddleware, AuthController.profile);
 router.post("/user/signup", AuthController.register);
 router.post("/user/login", detectServer, AuthController.login);
+router.post("/user/logout", authMiddleware, AuthController.logout);
 router.post("/user/token/refresh", JWTRefresh);
 
 module.exports = router;

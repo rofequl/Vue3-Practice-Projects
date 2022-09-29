@@ -30,29 +30,33 @@ async function authMiddleware(req, res, next) {
     const tokenParts = req.headers.authorization.split(" ");
     if (tokenParts[0] === "Bearer" && tokenParts[1].match(/\S+\.\S+\.\S+/) !== null) {
         const decodedToken = await jsonwebtoken.decode(tokenParts[1], {complete: true});
-        const userLog = await LoginInfo.findOne({refreshKey: decodedToken.payload.ref}).select('_id');
+        const userLog = await LoginInfo.findOne({
+            refreshKey: decodedToken.payload.ref,
+            userId: decodedToken.payload.sub
+        }).select('_id');
         if (userLog && userLog._id) {
             jsonwebtoken.verify(tokenParts[1], PUB_KEY, {algorithms: ["RS256"], maxAge: "5m"}, function (err, decoded) {
                 if (err) {
-                    if (err.message === "jwt expired") return res.status(401).json({
+                    if (err.message === "jwt expired") return res.status(403).json({
                         error: "Token expired",
                         message: "Your token has been expired"
                     })
-                    else return res.status(401).json({error: "Not authenticated!", message: "Bearer token invalid"})
+                    else return res.status(403).json({error: "Not authenticated!", message: "Bearer token invalid"})
                 } else {
                     User.findOne({_id: decoded.sub}, (err, user) => {
                         if (user) {
                             req.user = user;
+                            req.refreshToken = decoded.ref;
                             next();
-                        } else return res.status(401).json({
+                        } else return res.status(403).json({
                             error: "Not authenticated!",
                             message: "Bearer token invalid"
                         });
                     });
                 }
             });
-        } else return res.status(401).json({error: "Not authenticated!", message: "Bearer token invalid"});
-    } else return res.status(401).json({error: "Not authenticated!", message: "Bearer token invalid"});
+        } else return res.status(403).json({error: "Not authenticated!", message: "Bearer token invalid"});
+    } else return res.status(403).json({error: "Not authenticated!", message: "Bearer token invalid"});
 }
 
 async function JWTRefresh(req, res, next) {
@@ -62,15 +66,28 @@ async function JWTRefresh(req, res, next) {
     });
     const tokenParts = req.headers.authorization.split(" ");
     if (tokenParts[0] === "Bearer" && tokenParts[1].match(/\S+\.\S+\.\S+/) !== null) {
-        const decodedToken = jsonwebtoken.decode(tokenParts[1], {complete: true});
-        if (!decodedToken) return res.status(401).json({error: "Not authenticated!", message: "Bearer token invalid"});
-        const refresh = await refreshToken(decodedToken);
-        if (!refresh) return res.status(401).json({error: "Not authenticated!", message: "Bearer token invalid"});
-        else {
-            const tokenObject = issueJWT(refresh.user, refresh.refreshKey);
-            res.status(200).json({success: true, token: tokenObject.token, expiresIn: tokenObject.expires});
-        }
-    } else return res.status(401).json({error: "Not authenticated!", message: "Bearer token invalid"});
+        jsonwebtoken.verify(tokenParts[1], PUB_KEY, {
+            algorithms: ["RS256"],
+            maxAge: "5m"
+        }, async function (err, decoded) {
+            if (err && err.message === "jwt expired") {
+                const decodedToken = jsonwebtoken.decode(tokenParts[1], {complete: true});
+                if (!decodedToken) return res.status(403).json({
+                    error: "Not authenticated!",
+                    message: "Bearer token invalid"
+                });
+                const refresh = await refreshToken(decodedToken);
+                if (!refresh) return res.status(403).json({
+                    error: "Not authenticated!",
+                    message: "Bearer token invalid"
+                });
+                else {
+                    const tokenObject = issueJWT(refresh.user, refresh.refreshKey);
+                    res.status(200).json({success: true, token: tokenObject.token, expiresIn: tokenObject.expires});
+                }
+            }
+        })
+    } else return res.status(403).json({error: "Not authenticated!", message: "Bearer token invalid"});
 }
 
 module.exports.issueJWT = issueJWT;
