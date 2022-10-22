@@ -1,17 +1,11 @@
-const {socketConnection} = require('./socket');
-const express = require("express");
-const app = express();
-const server = require('http').createServer(app);
-socketConnection(server);
-const cors = require('cors')
+const express = require('express')
+const app = express()
+const port = 3000
 
-const path = __dirname + '/views/dist/';
-const PORT = process.env.PORT || 3001;
-app.use(express.static(path))
-app.use(cors());
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
 
-app.use((req, res) => {
-    res.sendFile(path + "index.html")
-});
-
-server.listen();
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
