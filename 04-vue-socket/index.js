@@ -5,6 +5,7 @@ const cors = require('cors')
 
 const path = __dirname + '/views/dist/';
 const PORT = process.env.PORT || 3001;
+app.use(express.json());
 app.use(express.static(path))
 app.use(cors());
 
