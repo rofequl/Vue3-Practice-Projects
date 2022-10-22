@@ -2,6 +2,14 @@
   <router-view/>
 </template>
 
-<style>
+<script>
+import {computed, watch} from "vue";
+import store from "./store";
+import socket from "./core/plugins/socket";
 
-</style>
+const user = computed(() => store.getters.currentUser)
+watch(user, () => {
+  if (user.value._id) socket.emit("new-user-add", user.value._id);
+})
+
+</script>

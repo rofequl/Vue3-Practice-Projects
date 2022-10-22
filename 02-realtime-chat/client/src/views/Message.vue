@@ -8,4 +8,5 @@
 <script setup>
 import Conversion from "../components/message/conversion/Conversion.vue";
 import ChatBox from "../components/message/chatBox/ChatBox.vue";
+
 </script>

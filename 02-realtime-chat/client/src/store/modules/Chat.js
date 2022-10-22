@@ -6,7 +6,10 @@ const chat = {
         chatUser: {},
         chatUserMessage: {},
     },
-    getters: {},
+    getters: {
+        chatUser: (state) => state.chatUser,
+        chatUserMessage: (state) => state.chatUserMessage,
+    },
     actions: {
         //New message action
         CHAT_BOX_MESSAGE({commit, dispatch}, user) {
