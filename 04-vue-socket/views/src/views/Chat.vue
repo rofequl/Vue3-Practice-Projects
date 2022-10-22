@@ -1,18 +1,11 @@
 <script setup>
-import io from "socket.io-client";
 import {ref} from "vue";
-
-const socket = io();
 
 const all_message = ref([]);
 const message = ref();
 const message_send = () => {
-  socket.emit('message', message.value);
   message.value = ''
 }
-socket.on('message back', (msg) => {
-  all_message.value.push(msg)
-})
 </script>
 <template>
   <div class="mx-auto h-[89%] mt-16 max-w-7xl relative">
