@@ -14,4 +14,4 @@ app.use((req, res) => {
     res.sendFile(path + "index.html")
 });
 
-server.listen(PORT, () => console.log(`app started on port: ${PORT}`));
+server.listen();
