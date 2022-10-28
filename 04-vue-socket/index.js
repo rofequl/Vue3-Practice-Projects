@@ -1,17 +1,16 @@
 const express = require("express");
-const cors = require("cors");
+const path = require('path');
 
-const path = __dirname + '/views/dist/';
 const PORT = process.env.PORT || 3000;
 const app = express();
 // Init body-parser options (inbuilt with express)
-app.use(express.json());
-app.use(express.static(path))
-app.use(cors());
+app.use(express.static('public'))
 
 // Frontend view html page serve
 app.get('/', function (req, res) {
-    res.sendFile(path + "index.html")
+    res.sendFile("index.html", {root: path.join(__dirname, 'public')})
 });
 
 app.listen(PORT, () => console.log(`app started on port: ${PORT}`));
+
+module.exports = app;
