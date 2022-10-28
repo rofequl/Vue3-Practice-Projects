@@ -4,7 +4,15 @@
     <list default="true" id="2f719175-adc0-4976-b1cc-dfa60b51d539" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dist/assets/AboutView.4d995ba2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dist/assets/AboutView.adb72473.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dist/assets/index.81e4655a.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dist/assets/index.934d6891.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dist/assets/logo.da9b9095.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dist/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/views/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +69,7 @@
       <workItem from="1666440396006" duration="2864000" />
       <workItem from="1666925734152" duration="3200000" />
       <workItem from="1666938545873" duration="3826000" />
-      <workItem from="1666956172680" duration="175000" />
+      <workItem from="1666956172680" duration="3921000" />
     </task>
     <servers />
   </component>

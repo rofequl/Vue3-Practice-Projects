@@ -1,6 +1,8 @@
+const {socketConnection} = require('./socket');
 const express = require("express");
 const app = express();
-
+const server = require('http').createServer(app);
+socketConnection(server);
 const cors = require('cors')
 
 const path = __dirname + '/views/dist/';
@@ -12,6 +14,4 @@ app.use((req, res) => {
     res.sendFile(path + "index.html")
 });
 
-app.listen(PORT, () => console.log(`app started on port: ${PORT}`));
-
-module.exports = app;
+server.listen(PORT, () => console.log(`app started on port: ${PORT}`));
