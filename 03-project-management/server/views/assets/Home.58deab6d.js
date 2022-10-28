@@ -1,1 +1,0 @@
-import{_ as e,e as t,f as c}from"./index.94cb6303.js";const o={},s={class:"mx-auto h-[89%] mt-16 max-w-7xl relative"};function a(r,n){return t(),c("div",s)}const m=e(o,[["render",a]]);export{m as default};

@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const path = __dirname + '/views/';
+const path = __dirname + '/views/dist/';
 const PORT = process.env.PORT || 3000;
 const app = express();
 // Init body-parser options (inbuilt with express)
